@@ -22,7 +22,7 @@ Features
 - [x] Web Panel Auto Install (Plesk,Cyberpanel,Apache)
 - [x] Firewall/AntiFlood System Install
 - [x] Proxy(Socks) Server Install
-- [] OpenVpn Auto Install
+- [ ] OpenVpn Auto Install
  
 Donation
 ---
