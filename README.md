@@ -1,5 +1,5 @@
 # Tier Linux Server System Manage
-[BASH Script]
+[BASH Script Install And Run]
 
 > wget https://raw.githubusercontent.com/obirninja/Tier-Server-System-Manage/master/t13r
 
