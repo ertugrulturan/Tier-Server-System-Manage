@@ -1,6 +1,8 @@
 # Tier Linux Server System Manage
 [BASH Script Install And Run]
 
+> sudo su
+
 > wget https://raw.githubusercontent.com/obirninja/Tier-Server-System-Manage/master/t13r
 
 > chmod +x t13r
@@ -14,6 +16,7 @@ Demo/Trailer Video
 Compulsory
 ---
 * Script run and run 8 (selec your server os and installed modules)
+* Only root run script
 
 Features
 ---
