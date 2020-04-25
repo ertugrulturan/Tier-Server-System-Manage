@@ -1,0 +1,219 @@
+#!/bin/bash
+# NinjaNetwork / V4T1 / T13R / Ertuğrul TURAN
+# WWW = https://obir.ninja/
+
+GREEN='\e[0;32m'
+RED='\e[0;31m'
+PURPLE='\e[0;35m'
+LIGHTBLUE='\e[1;34m'
+LIGHTGREEN='\e[1;32m'
+LIGHTCYAN='\e[1;36m'
+YELLOW='\e[1;33m'
+WHITE='\e[1;37m'
+
+exit_script()
+{
+  echo "PWRD BY NinjaNetwork - Obir.Ninja [CLOSE SCRIPT = CTRL+Z]"
+}
+
+installenlanmk()
+{
+	clear
+    echo -e "${WHITE}Selec your server os :"
+	echo -e "${LIGHTBLUE}[1]${PURPLE}UBUNTU/DEBIAN${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[2]${GREEN}CENTOS${LIGHTBLUE}"
+	echo -e "${LIGHTBLUE}[3]${PURPLE}FEDORA${LIGHTBLUE}"
+    echo "Selec your os (1-3);"
+    read yourchx
+    case $yourchx in
+      1) ubuntu_installenlanmk ;;
+      2) centos_installenlanmk ;;
+      3) fedora_installenlanmk ;;
+      ex) echo "tier@obir.ninja - $ " ;  exit 1  ;;
+      *) echo "ERROR!!" ;
+         echo "[ENTER AND COU...]" ; read ;;
+ esac 
+}
+
+wwwpanels()
+{
+	clear
+    echo -e "${WHITE}Selec your www/web server :"
+	echo -e "${LIGHTBLUE}[1]${PURPLE}Plesk${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[2]${GREEN}CyberPanel${LIGHTBLUE}"
+	echo -e "${LIGHTBLUE}[3]${PURPLE}Apache Default${LIGHTBLUE}"
+    echo "Selec (1-3);"
+    read yourchx
+    case $yourchx in
+      1) pelsk_installenlanmk ;;
+      2) cyberpanel_installenlanmk ;;
+      3) apache_installenlanmk ;;
+      ex) echo "tier@obir.ninja - $ " ;  exit 1  ;;
+      *) echo "ERROR!!" ;
+         echo "[ENTER AND COU...]" ; read ;;
+ esac 
+}
+
+proxyservermode()
+{
+rm -rf 0cedbc69
+curl -O https://pastebin.pl/view/raw/0cedbc69 || wget https://pastebin.pl/view/raw/0cedbc69
+chmod +x 0cedbc69
+    clear
+echo "${LIGHTGREEN}Server Ip (local or public): "
+read ip
+echo "${LIGHTGREEN}Open proxy port: "
+read port
+screen python 0cedbc69 --hostname $ip --port $port > /dev/null 2>/dev/null &
+clear
+echo "Proxy Open :) ="
+echo $ip ":" $port
+}
+
+pelsk_installenlanmk()
+{
+    clear
+sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)
+}
+
+cyberpanel_installenlanmk()
+{
+    clear
+sudo su -
+sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
+}
+
+inetbasefirewall()
+{
+    clear
+echo "Waiting..."
+screen sh <(curl http://www.inetbase.com/scripts/ddos/install.sh || wget -O - http://www.inetbase.com/scripts/ddos/install.sh) > /dev/null 2>/dev/null &
+sleep 15
+pkill screen
+}
+
+apache_installenlanmk()
+{
+    clear
+sudo su -
+apt-get install apache -y
+yum install apache -y
+}
+
+ubuntu_installenlanmk()
+{
+    clear
+echo "${LIGHTCYAN}UBUNTU Your OS Selceted an script module install..."
+apt-get install vnstat -y
+apt-get install screen -y
+apt-get install tcpdump -y
+apt-get install curl -y
+}
+
+centos_installenlanmk()
+{
+    clear
+echo "${LIGHTCYAN}CENTOS Your OS Selceted an script module install..."
+yum install vnstat -y
+yum install screen -y
+yum install tcpdump -y
+yum install curl -y
+}
+
+fedora_installenlanmk()
+{
+    clear
+echo "${LIGHTCYAN}FEDORA Your OS Selceted an script module install..."
+dnf install vnstat -y
+dnf install screen -y
+dnf install tcpdump -y
+dnf install curl -y
+}
+
+tcpdunsecilenport()
+{
+    clear
+echo "${LIGHTCYAN}Write Listen Port (80,22,443...) :"
+read portcuks
+echo "${LIGHTCYAN}Network card name (eth0,eth1,wlp3...) :"
+read cardnetworkss
+tcpdump -i $cardnetworkss 'port $portcuks'
+}
+
+Ip_banned()
+{
+    clear
+echo "${RED}Banned ip address :"
+read ip
+iptables -A INPUT -s $ip -j DROP
+iptables -A INPUT -s $ip -j REJECT
+}
+
+listenetwork()
+{
+    clear
+echo "${YELLOW}"
+vnstat -l
+}
+
+Ip_Unbanned()
+{
+    clear
+echo "${LIGHTGREEN}UNBanned ip address : "
+read ip
+iptables -D INPUT -s $ip -j DROP
+iptables -D INPUT -s $ip -j REJECT
+}
+exit_script1()
+{
+  exit 1
+}
+
+Take_input1()
+{
+clear
+while :
+do
+clear
+echo -e "${WHITE}${RED}     "  
+    echo -n """
+   ::::::::::::::::::::::::::::::::::::::::: 
+     :+:        :+:    :+:       :+:    :+: 
+    +:+        +:+    +:+       +:+    +:+  
+   +#+        +#+    +#++:++#  +#++:++#:    
+  +#+        +#+    +#+       +#+    +#+    
+ #+#        #+#    #+#       #+#    #+#     
+###    ########################    ###     
+       Server System Manage v1.0
+    """    
+echo -e ""  
+echo -e "" 
+echo -e "${LIGHTGREEN}https://obir.ninja - NinjaNetwork    [CLOSE SCRIPT = CTRL+Z]"                
+    echo -e "${WHITE}"
+	echo -e "${LIGHTBLUE}[1]${PURPLE}IP Adress Ban${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[2]${GREEN}IP Adress UnBan${LIGHTBLUE}"
+	echo -e "${LIGHTBLUE}[3]${PURPLE}Listen to the out network${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[4]${GREEN}Listen to the input network${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[5]${PURPLE}Web Panel Install (WWW)${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[6]${GREEN}Firewall/AntiFlood System Install${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[7]${PURPLE}Proxy(Socks) Server Install/Run${LIGHTBLUE}"
+    echo -e "${LIGHTBLUE}[8]${GREEN}Install Script* (run at first)${LIGHTBLUE}"
+    echo "Selec(1-8);"
+    read yourch
+    case $yourch in
+      1) Ip_banned ;;
+      2) Ip_Unbanned ;;
+      3) listenetwork ;;
+      4) tcpdunsecilenport ;;
+      5) wwwpanels ;;
+      6) inetbasefirewall ;;
+      7) proxyservermode ;;
+      8) installenlanmk ;;
+      ex) echo "tier@obir.ninja - $ " ;  exit 1  ;;
+      *) echo "ERROR!!" ;
+         echo "[ENTER AND COU...]" ; read ;;
+ esac
+done 
+}
+trap exit_script 2
+Take_input1
