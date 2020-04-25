@@ -19,7 +19,7 @@ Script Screen
 
 Compulsory
 ---
-* Script run and run 8 (selec your server os and installed modules)
+* Script first time run -> 8 (selec your server os and installed modules)
 * Only root run script
 
 Features
